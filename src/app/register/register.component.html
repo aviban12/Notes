@@ -1,0 +1,9 @@
+<div class="login-page">
+    <div class="form">
+        <input type="text" [(ngModel)]="RegisterModal.name" placeholder="name" />
+        <input type="password" [(ngModel)]="RegisterModal.password" placeholder="password" />
+        <input type="text" [(ngModel)]="RegisterModal.email" placeholder="email address" />
+        <button (click)="registerUser()">Register</button>
+        <p (click)="openLogin()" class="message">Already registered? <a>Sign In</a></p>
+    </div>
+</div>

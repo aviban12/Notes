@@ -1,9 +1,21 @@
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
+export const firebaseConfig = {
+  apiKey: 'AIzaSyB3KPnlcO06m29p4lQhD_P_iTBdUyGSThE',
+  authDomain: 'smplyturn.firebaseapp.com',
+  databaseURL: 'https://smplyturn.firebaseio.com',
+  projectId: 'smplyturn',
+  storageBucket: 'smplyturn.appspot.com',
+  messagingSenderId: '723637015212',
+  appId: '1:723637015212:web:ea160ac8d053a74b910509',
+  measurementId: 'G-EBMHHLHG5H'
+}
+
 
 export const environment = {
-  production: false
+  production: false,
+
 };
 
 /*

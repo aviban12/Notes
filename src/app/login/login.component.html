@@ -1,0 +1,8 @@
+<div class="login-page">
+    <div class="form">
+        <input type="text" [(ngModel)]="email" placeholder="email address" />
+        <input type="password" [(ngModel)]="password" placeholder="password" />
+        <button (click)="LoginUser()">Sign In</button>
+        <p class="message">Create Account? <a (click)="openRegister()">Register</a></p>
+    </div>
+</div>
