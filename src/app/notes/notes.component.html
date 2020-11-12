@@ -11,9 +11,11 @@
         <!-- <mat-label>Enter Note</mat-label> -->
         <!-- <textarea matInput cdkTextareaAutosize placeholder="Ex. It makes me feel..." [(ngModel)]="note"></textarea> -->
         <div>
-            <textarea matInput [froalaEditor] [(froalaModel)]="note" [(ngModel)]="note" cdkTextareaAutosize></textarea>
+            <textarea matInput [froalaEditor] [(froalaModel)]="note" cdkTextareaAutosize></textarea>
         </div>
+        <!-- <label>{{ note.length }}</label> -->
     </mat-form-field>
+
     <button mat-button *ngIf="submitEnable==true" class="lrge-btn" (click)="submitNote()">Submit</button>
     <button mat-button *ngIf="updateEnable==true" class="lrge-btn" (click)="UpdateNote()">Update</button>
 </div>

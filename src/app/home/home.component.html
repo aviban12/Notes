@@ -30,14 +30,14 @@
         <!-- Weight Column -->
         <ng-container matColumnDef="note">
             <th mat-header-cell *matHeaderCellDef> Note</th>
-            <td mat-cell *matCellDef="let element"> {{ element.data().note | slice:0:20}}... </td>
+            <td mat-cell *matCellDef="let element"> {{ element.data().note | slice:3:10}}... </td>
         </ng-container>
 
         <!-- Symbol Column -->
         <ng-container matColumnDef="id">
             <th mat-header-cell *matHeaderCellDef>Actions </th>
             <td mat-cell *matCellDef="let element">
-                <span (click)="openNote(element.data().docId)" class="material-icons icn">
+                <span (click)="openNote(element.data().uniqueId, element.data().docId)" class="material-icons icn">
             edit
             </span>
                 <span (click)="deleteNote(element.id)" class="material-icons icn">
@@ -52,7 +52,7 @@
 
 <div *ngIf="id==1">
     <div class="fab-icon">
-        <button (click)="openNote($event)" mat-fab color="primary" aria-label="Example icon button with a delete icon">
+        <button (click)="openNote('', '')" mat-fab color="primary" aria-label="Example icon button with a delete icon">
     <mat-icon>add</mat-icon>
   </button>
     </div>
@@ -74,14 +74,14 @@
         <!-- Weight Column -->
         <ng-container matColumnDef="note">
             <th mat-header-cell *matHeaderCellDef> Note</th>
-            <td mat-cell *matCellDef="let element"> {{ element.data().note | slice:0:20 }}... </td>
+            <td mat-cell *matCellDef="let element"> {{ element.data().note | slice:3:10 }}... </td>
         </ng-container>
 
         <!-- Symbol Column -->
         <ng-container matColumnDef="id">
             <th mat-header-cell *matHeaderCellDef>Actions </th>
             <td mat-cell *matCellDef="let element">
-                <span (click)="openNote(element.data().docId)" class="material-icons icn">
+                <span (click)="openNote(element.data().uniqueId, element.data().docId)" class="material-icons icn">
           edit
           </span>
                 <span (click)="deleteNote(element.id)" class="material-icons icn">

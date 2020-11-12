@@ -4,12 +4,14 @@ table {
 
 .icn {
     margin-left: 5px;
+    cursor: pointer;
 }
 
 .fab-icon {
     position: fixed !important;
     right: 15px;
     bottom: 15px;
+    cursor: pointer;
     /* Add this and change value to set the margin you want */
 }
 

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FroalaEditorDirective } from 'angular-froala-wysiwyg';
+import FroalaEditor from 'froala-editor';
+
 import { ToastrService } from 'ngx-toastr';
 import { MasterService } from 'src/services/master.service';
 
@@ -10,7 +13,7 @@ import { MasterService } from 'src/services/master.service';
 })
 export class NotesComponent implements OnInit {
   public subject: any;
-  public note: any;
+  public note: string;
   public id: any;
   public uniqueId: any;
   public docId: any;
@@ -38,14 +41,13 @@ export class NotesComponent implements OnInit {
       this.documentId = res.id;
       this.subject = res.data()['subject'];
       this.note = res.data()['note'];
-      console.log(this.subject, this.note);
+      // console.log(this.subject, this.note);
       // this.subject = res.data().subject;
       // this.note = res.data().note;
     });
   }
 
   submitNote(){
-    if (this.subject && this.note.length > 120 && this.note.length < 160){
     this.masterService.addNote({id: this.id,
                                 docId: this.generateRandomNumber(),
                                 uniqueId: this.uniqueId,
@@ -58,9 +60,6 @@ export class NotesComponent implements OnInit {
                                     this.router.navigate(['./home', this.uniqueId, 1]);
                                   }
                                  });
-    }else{
-      this.toastr.warning('Invalid Length of Note');
-    }
   }
 
   UpdateNote(){
@@ -77,10 +76,11 @@ export class NotesComponent implements OnInit {
   }
 
   checkLength(){
-    if (this.note.length > 120 && this.note.length < 160){
-      console.log(this.note.length);
-      this.toastr.warning('Text Limit reached');
-    }
+    console.log(this.note.length);
+    // if (this.note.length > 120 && this.note.length < 160){
+    //   // console.log(this.note.length);
+    //   this.toastr.warning('Text Limit reached');
+    // }
   }
 
   back(){

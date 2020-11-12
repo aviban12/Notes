@@ -80,9 +80,12 @@ export class HomeComponent implements OnInit {
   }
   }
 
-  openNote(docId){
+  openNote(uniqueId, docId){
     if (docId){
-      this.router.navigate(['./notes', this.uniqueId, this.id , docId]);
+      this.router.navigate(['./notes', uniqueId, this.id , docId]);
+    }else{
+      // console.log(this.uniqueId, this.id);
+      this.router.navigate(['./notes', this.uniqueId, this.id]);
     }
   }
 
