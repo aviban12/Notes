@@ -2,7 +2,7 @@
     "name": "simplyturn",
     "version": "0.0.0",
     "scripts": {
-        "start": "ng serve",
+        "start": "node server.js",
         "lint": "ng lint",
         "e2e": "ng e2e"
     },
@@ -20,6 +20,7 @@
         "@angular/platform-browser-dynamic": "~9.1.4",
         "@angular/router": "~9.1.4",
         "angular-froala-wysiwyg": "^3.2.3",
+        "express": "^4.17.1",
         "firebase": "^8.0.1",
         "ngx-toastr": "^13.1.0",
         "page": "^1.11.6",
