@@ -18,7 +18,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { NotesComponent } from './notes/notes.component';
-
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,10 @@ import { NotesComponent } from './notes/notes.component';
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    FroalaEditorModule.forRoot(),
+    FroalaViewModule.forRoot(),
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

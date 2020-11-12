@@ -1,4 +1,5 @@
 <mat-toolbar>
+    <span (click)="back()" class="material-icons icn">clear</span>
     <span>Submit Notes</span>
 </mat-toolbar>
 <div class="subject">
@@ -7,8 +8,11 @@
         <input matInput [(ngModel)]="subject" placeholder="Subject">
     </mat-form-field>
     <mat-form-field class="full-width">
-        <mat-label>Enter Note</mat-label>
-        <textarea matInput cdkTextareaAutosize placeholder="Ex. It makes me feel..." [(ngModel)]="note"></textarea>
+        <!-- <mat-label>Enter Note</mat-label> -->
+        <!-- <textarea matInput cdkTextareaAutosize placeholder="Ex. It makes me feel..." [(ngModel)]="note"></textarea> -->
+        <div>
+            <textarea matInput [froalaEditor] [(froalaModel)]="note" [(ngModel)]="note" cdkTextareaAutosize></textarea>
+        </div>
     </mat-form-field>
     <button mat-button *ngIf="submitEnable==true" class="lrge-btn" (click)="submitNote()">Submit</button>
     <button mat-button *ngIf="updateEnable==true" class="lrge-btn" (click)="UpdateNote()">Update</button>

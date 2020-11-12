@@ -19,3 +19,12 @@
     background-color: black;
     color: white;
 }
+
+.mat-toolbar {
+    background-color: black;
+    color: white;
+}
+
+.icn {
+    cursor: pointer;
+}

@@ -1,8 +1,15 @@
 <mat-toolbar>
     <span *ngIf="id==0">Teacher Dashboard</span>
     <span *ngIf="id==1">Student Dashboard</span>
+    <div class="logout-btn">
+        <span (click)="logout()" class="material-icons">
+      logout
+      </span>
+    </div>
 </mat-toolbar>
 <div *ngIf="id==0">
+
+    <h2>List of Students Notes</h2>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
         <!--- Note that these columns can be defined in any order.
@@ -23,7 +30,7 @@
         <!-- Weight Column -->
         <ng-container matColumnDef="note">
             <th mat-header-cell *matHeaderCellDef> Note</th>
-            <td mat-cell *matCellDef="let element"> {{ element.data().note }} </td>
+            <td mat-cell *matCellDef="let element"> {{ element.data().note | slice:0:20}}... </td>
         </ng-container>
 
         <!-- Symbol Column -->
@@ -49,6 +56,7 @@
     <mat-icon>add</mat-icon>
   </button>
     </div>
+    <h2>List of My Notes</h2>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
         <!-- Position Column -->
@@ -66,7 +74,7 @@
         <!-- Weight Column -->
         <ng-container matColumnDef="note">
             <th mat-header-cell *matHeaderCellDef> Note</th>
-            <td mat-cell *matCellDef="let element"> {{ element.data().note }} </td>
+            <td mat-cell *matCellDef="let element"> {{ element.data().note | slice:0:20 }}... </td>
         </ng-container>
 
         <!-- Symbol Column -->

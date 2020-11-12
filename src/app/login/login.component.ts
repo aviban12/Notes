@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { VerificationService } from './verification.service';
 
 @Component({
@@ -12,7 +13,8 @@ export class LoginComponent implements OnInit {
   public email: any;
   public password: any;
   constructor(private verificationService: VerificationService,
-              private router: Router) { }
+              private router: Router,
+              private toastr: ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -31,7 +33,7 @@ export class LoginComponent implements OnInit {
       }
     });
   }else{
-    alert('Enter Correct Credentials');
+    this.toastr.error('Invalid Credentials');
   }
 }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { MasterService } from 'src/services/master.service';
 
 export interface Notes {
@@ -27,13 +28,13 @@ export class HomeComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private masterService: MasterService) { }
+              private masterService: MasterService,
+              private toatr: ToastrService) { }
 
 
   ngOnInit(): void {
     this.uniqueId = this.route.snapshot.params.uniqueId;
     this.id = this.route.snapshot.params.id;
-
     if (this.id === '0'){
       this.getAllNote();
     }else{
@@ -71,16 +72,24 @@ export class HomeComponent implements OnInit {
   }
 
   deleteNote(id){
+    let valid = confirm('Delete Note ?');
+    if(valid){
     this.masterService.deleteNote(id).then(res => {
-      //alert
+      this.toatr.success('Note Deleted');
     });
+  }
   }
 
   openNote(docId){
-    console.log(docId);
     if (docId){
       this.router.navigate(['./notes', this.uniqueId, this.id , docId]);
     }
   }
 
+  logout(){
+    let valid = confirm('Logout ?');
+    if(valid){
+    this.router.navigate(['./login']);
+    }
+  }
 }

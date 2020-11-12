@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { MasterService } from 'src/services/master.service';
 
 @Component({
@@ -14,11 +15,12 @@ export class NotesComponent implements OnInit {
   public uniqueId: any;
   public docId: any;
   public documentId;
-  public updateEnable: boolean = false;
-  public submitEnable: boolean = true;
+  public updateEnable = false;
+  public submitEnable = true;
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private masterService: MasterService) { }
+              private masterService: MasterService,
+              private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params.id;
@@ -57,26 +59,32 @@ export class NotesComponent implements OnInit {
                                   }
                                  });
     }else{
-      alert('Enter more than 120 and less than 160 characters');
+      this.toastr.warning('Invalid Length of Note');
     }
   }
 
   UpdateNote(){
+    if(confirm('Are you sure?')){
     this.masterService.updateNote(this.documentId, {id: this.id,
       docId: this.docId,
       uniqueId: this.uniqueId,
       subject: this.subject,
       note: this.note
     }).then(res => {
-        alert('Note Updated');
+        this.toastr.success('Note Updated');
     });
+  }
   }
 
   checkLength(){
     if (this.note.length > 120 && this.note.length < 160){
       console.log(this.note.length);
-      alert("Text limit reached");
+      this.toastr.warning('Text Limit reached');
     }
+  }
+
+  back(){
+    this.router.navigate(['./home', this.uniqueId, this.id]);
   }
 
   generateRandomNumber(){

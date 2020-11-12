@@ -12,3 +12,18 @@ table {
     bottom: 15px;
     /* Add this and change value to set the margin you want */
 }
+
+.logout-btn {
+    margin-left: 85%;
+    cursor: pointer;
+}
+
+h2 {
+    margin: 10;
+    text-align: center;
+}
+
+mat-toolbar {
+    background-color: black;
+    color: white;
+}
